@@ -32,3 +32,11 @@ Key Comparison
 * Dependencies: Client-side code relies on the browser to execute, whereas server-side code requires a web server environment to process requests and communicate with databases.
 * Independence: Server-side processing is crucial for platform independence, ensuring that the application logic remains stable across different computing environments.
 
+## Remember client and server by asking “who runs this code?”
+
+The browser owns client-side execution: page layout, user interaction, and code shipped to each user's device. The server owns server-side execution: trusted business rules, protected credentials, database access, and responses sent back over the network. A browser can display a button, but it cannot be trusted to enforce authorization; the server must check permissions for every protected action.
+
+The common flow is `browser request → server validation/business logic → data service → response → browser render`. Keep secrets and private signing keys on trusted server-side systems, and treat all client input as untrusted even when the UI validates it.
+
+**Recall check:** Where should the rule “only the owner may edit this record” be enforced? On the server, regardless of what the client interface shows.
+

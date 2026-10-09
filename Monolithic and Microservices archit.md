@@ -58,6 +58,14 @@ Synchronous: Standard HTTP API calls
 * Service Mesh: Advanced routing often used with Kubernetes and tools like Istio 
 * Disadvantages of Microservices: The architecture introduces high management overhead and infrastructure costs due to separate teams, pipelines, and containers for each service. Because of this, it is generally better suited for large organizations rather than small startups 
 
+## Remember the trade-off, not the trend
+
+A monolith groups much of an application into one deployable unit. That makes a small system easier to build and operate, but individual parts can become tightly coupled and require coordinated releases. Microservices split capabilities into independently deployable services, which can improve team ownership and targeted scaling while adding network failure, versioning, data consistency, observability, and operational overhead.
+
+Start with clear module boundaries and a well-structured monolith unless separate scaling, ownership, or release needs justify a network boundary. A service is not independent if every change still requires coordinated deployments or synchronous calls across the whole system.
+
+**Recall check:** What signal suggests a service boundary is helping? A team can change, deploy, and operate that capability with a stable contract and controlled dependencies.
+
 
 
 

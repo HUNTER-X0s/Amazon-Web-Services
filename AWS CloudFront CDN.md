@@ -57,6 +57,18 @@ Included in Always Free Tier
 
 +-----------------------+------------------------------------------+------------------------------------------+
 
+## Remember CloudFront as a cache in front of an origin
+
+The viewer requests a URL; a cache behavior decides which settings apply; CloudFront either returns a valid cached response or asks the origin for it. The cache key determines which requests share a cached response. If it includes too little, user-specific content could leak; if it includes too much, the cache becomes less useful.
+
+For S3, keep the bucket private and use Origin Access Control so only the intended distribution can read it. Use a short or disabled cache for frequently changing/private responses and longer caching for versioned static assets. An invalidation clears cached copies but does not alter the object at the origin.
+
+**Recall check:** A page shows old content after deployment. Is the source file necessarily wrong? No—check origin object/version, cache policy, and whether the distribution has finished deploying.
+
+AWS Shield Standard is baseline protection that does not require manual enablement. Shield Advanced is a separate subscription and resource-protection process; confirm its operational readiness and current cost before opting in.
+
+**Console practice:** [CloudFront walkthrough](guides/aws-console/cloudfront.md) · [AWS Shield overview](guides/aws-console/shield.md)
+
 
 
 | Feature               | CloudFront                               | Multi-Location Hosting                   |

@@ -53,3 +53,13 @@ Important points about EBS :
 
 \- No need to restart the EC2 instance during the process.
 
+## Remember EBS as a disk, not a file share
+
+EBS stores blocks that an operating system formats into a filesystem. A volume is tied to one Availability Zone, so its EC2 attachment must be in that same AZ. Resizing the cloud volume is only one part of growing usable space: the guest operating system may also need its partition and filesystem extended.
+
+An EBS snapshot is a point-in-time, incremental backup stored independently from the running volume. For application-consistent backups, coordinate writes or use an appropriate backup process. Always unmount before detaching, and identify the correct device before formatting—formatting is destructive.
+
+**Recall check:** A volume is `Available` but will not attach to the instance. What placement property do you check first? Availability Zone.
+
+**Console practice:** [EBS walkthrough](guides/aws-console/amazon-ebs.md)
+

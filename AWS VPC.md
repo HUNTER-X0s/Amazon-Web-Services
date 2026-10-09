@@ -142,6 +142,18 @@ AWS Client VPN:
 
 Managed VPN service that enables secure remote access to AWS resources and on premises networks using open VPN-based clients. 
 
+## Remember networking as a sequence of gates
+
+Ask in this order: **Is the address in the right VPC/subnet? Is there a route to the destination? Does the security group allow it? Does the NACL allow both directions? Is the destination service listening?** This turns “networking is broken” into a short set of testable questions.
+
+A subnet is not automatically public because of its name. It is public when its route table points to an internet gateway and the workload has the needed public address and firewall rules. A NAT gateway lets private resources initiate outbound connections; it does not provide unsolicited inbound access. Security groups are stateful and attached to network interfaces; NACLs are stateless and associated with subnets.
+
+For private access to AWS services, a VPC endpoint can avoid routing through a public internet gateway/NAT path. VPC peering connects two VPCs only when CIDRs do not overlap and both sides have routes; it is not transitive. Use Flow Logs for traffic metadata and Reachability Analyzer for modeled paths.
+
+**Recall check:** An EC2 instance is in a private subnet and cannot download updates. Which path should exist? A route to a NAT gateway or the relevant service endpoint, plus matching network rules.
+
+**Console practice:** [VPC and networking walkthrough](guides/aws-console/amazon-vpc-networking.md) · [Client VPN walkthrough](guides/aws-console/client-vpn.md) · [Direct Connect workflow](guides/aws-console/direct-connect.md)
+
 
 
 

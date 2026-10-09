@@ -73,5 +73,17 @@ These devices help you transfer data quickly, securely, and cost-effectively to 
 Amazon S3 Storage Gateway  :
 It is a hybrid cloud storage service that connects premises environments to cloud storage in Amazon S3. It helps extend your local storage to the cloud by acting as a bridge. 
 
+## Remember S3 as “bucket + key + bytes”
+
+S3 is object storage. A bucket is a container and an object's key is its full name, such as `images/cat.jpg`; the slash creates a prefix that the console displays like a folder. Access is decided by identity policies, bucket/access-point policies, encryption permissions, and public-access controls—not by guessing an object's URL.
+
+Versioning keeps prior object versions and delete markers, which helps recover from mistakes but retains more data. Lifecycle rules can transition or expire data according to policy. Replication copies eligible objects only after its roles, versioning, and destination configuration are in place. S3 Glacier classes are archival storage classes with retrieval behavior and costs to plan for.
+
+For a static site, consider private S3 plus CloudFront Origin Access Control when public access is not required. For remote data transfer, keep local copies until checksums/counts and completion reports verify the result.
+
+**Recall check:** “The file is in S3 but Access Denied.” What should you inspect? Bucket/object existence, IAM and bucket policy, Block Public Access, encryption key policy, and the request's principal.
+
+**Console practice:** [S3 walkthrough](guides/aws-console/amazon-s3.md) · [CloudFront walkthrough](guides/aws-console/cloudfront.md) · [Snow Family workflow](guides/aws-console/snow-family.md) · [Storage Gateway workflow](guides/aws-console/storage-gateway.md)
+
 
 

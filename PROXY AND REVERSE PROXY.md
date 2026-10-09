@@ -63,6 +63,14 @@ Using a single server as both a Forward and Reverse Proxy:
 
 * Yes, it is possible to configure a single server to act as both. Software like Nginx is powerful enough to handle both roles simultaneously, managing outbound requests for a local network (Forward Proxy) while also managing inbound traffic for backend servers (Reverse Proxy).
 
+## Remember proxy direction by asking whom it serves
+
+A **forward proxy serves clients**: internal users send requests through it toward outside services. A **reverse proxy serves an application**: outside clients connect to it, and it forwards requests to private backend servers. Both mediate requests, but their trust boundaries, authentication, and logging needs differ.
+
+For a reverse proxy, preserve only the required headers, validate forwarded identity/IP information, restrict direct backend access, and avoid treating a proxy-provided header as trustworthy unless the proxy that set it is trusted. A proxy can add control and caching, but it does not replace application authorization or a network firewall.
+
+**Recall check:** A server sees every user's address as the load balancer's address. Which configuration matters? Trusted proxy forwarding headers and the application's trusted-proxy list.
+
 
 
 

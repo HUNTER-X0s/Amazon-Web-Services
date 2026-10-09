@@ -2658,3 +2658,19 @@ For a fresher AWS/cloud-aware developer, a very strong foundation is:
 Cloud fundamentals + Networking + Linux + AWS core services + Git + Docker + basic CI/CD + one deployed project.
 
 With that combination, you are much more interview-ready than someone who simply memorizes 50 AWS services.
+
+## Fast recall framework: explain the job, then the boundary
+
+For any cloud topic, answer four questions: **What problem does it solve? What does it manage for me? What do I still configure? What can fail or cost money?** This turns a memorized definition into an explanation that survives follow-up questions.
+
+Use this architecture spine as a retrieval cue:
+
+`DNS → CDN → load balancer → scalable compute → database/object storage`
+
+Then add identity, network isolation, messaging, monitoring, audit logs, backups, and deployment automation. Each service should have a reason in the design: Route 53 names endpoints, CloudFront caches/delivers, ELB distributes traffic, Auto Scaling adjusts instance count, EC2 runs a server, RDS stores relational data, and S3 stores objects.
+
+When comparing concepts, state the axis explicitly: **availability vs durability; scalability vs elasticity; Multi-AZ vs read replica; EBS vs S3 vs EFS; CloudWatch vs CloudTrail; public vs private subnet**. This makes the contrast memorable and prevents mixing the terms.
+
+**Active-recall drill:** Hide the page and sketch one request path from URL to database. For every arrow, say what it does, which identity is used, and one likely failure. Revisit the answer after a day and a week rather than rereading the whole guide passively.
+
+**Console practice:** Use the dedicated [AWS Console Field Guides](guides/aws-console/README.md) to turn each concept into a small, cleanable exercise.

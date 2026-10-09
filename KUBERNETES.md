@@ -104,6 +104,16 @@ Kubernetes Architecture  :
 * Kube-proxy : Manages network connectivity and load balancing between pods to ensure they can talk to each other.
 * Container Runtime : The software (like Docker) responsible for actually starting, stopping, or pausing the containers based on instructions from the Kubelet.
 
+## Remember Kubernetes through desired state
+
+You declare the state you want, and controllers keep comparing actual state with that desired state. A **Pod** is the smallest scheduled unit; a **Deployment** maintains interchangeable pod replicas; a **Service** gives a stable network identity to matching pods; a **ConfigMap/Secret** supplies configuration; an **Ingress/Gateway** provides an HTTP entry path when configured with a controller.
+
+The control plane stores and schedules cluster objects; worker nodes run pods through a container runtime. Labels and selectors connect objects. When a pod fails, the Deployment replaces it, but persistent data needs a volume and the application still needs health checks, resource requests/limits, permissions, and secure configuration.
+
+**Recall check:** A Deployment says three replicas but only two Pods are ready. Which information helps diagnose it? Deployment/ReplicaSet events, pod status and logs, resource scheduling, image pull access, and readiness probe results.
+
+**AWS console practice:** [Amazon EKS walkthrough](guides/aws-console/amazon-eks.md)
+
 
 
 

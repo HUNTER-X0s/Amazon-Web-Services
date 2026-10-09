@@ -91,6 +91,16 @@ Traffic flow: use a visual tool to create policies for multiple endpoints in com
 
 Resolver: route DNS queries between your VPCs and your network. 
 
+## Remember Route 53 as the internet's address book
+
+DNS answers the question **“where should this name go?”** Route 53 stores the answer as records, while a hosted zone defines which names it is responsible for. A public hosted zone answers internet lookups; a private hosted zone answers only from associated VPCs. Registering a domain and hosting its DNS are related but separate tasks.
+
+For a typical app, remember `domain → DNS record → CloudFront/load balancer → application`. An Alias record is an AWS-aware pointer for supported AWS targets; it is not simply another name for CNAME. Keep TTLs in mind: after changing a record, resolvers may use the old answer until its cache expires.
+
+**Recall check:** If a Route 53 record looks correct but visitors resolve the old address, what two things would you verify? Check authoritative name-server delegation and TTL/cache behavior.
+
+**Console practice:** [Route 53 walkthrough](guides/aws-console/route-53.md)
+
 
 
 

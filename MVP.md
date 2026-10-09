@@ -41,6 +41,14 @@ Benefits of MVC:
 * Testability: Allows developers to test models, views, and controllers independently.
 * Team Collaboration: Enables multiple developers to work simultaneously on different components.
 
+## Keep MVP and MVC distinct
+
+**MVP** (Minimum Viable Product) is a product-learning strategy: ship the smallest useful experiment that can test an assumption and collect feedback. It is not a promise to build a low-quality product; decide what evidence you need and stop or iterate based on what users do.
+
+**MVC** (Model-View-Controller) is an application architecture pattern that separates domain data/rules, presentation, and request coordination. One answers “what is the smallest experiment worth testing?”; the other answers “how should this application code be organized?” They can be used together.
+
+**Recall check:** A team releases a small booking workflow to learn if customers want self-service. Is that MVP or MVC? MVP describes the experiment; MVC may describe how the implementation is structured.
+
 
 
 

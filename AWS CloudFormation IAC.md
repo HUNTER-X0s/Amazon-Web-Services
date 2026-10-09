@@ -68,6 +68,16 @@ It provides :
 
 7\. Deploy IAM roles, policies, and user access management
 
+## Remember stacks as managed desired state
+
+CloudFormation takes a declarative template and tries to make the account match it. The stack records ownership and dependency relationships so that a reviewed update can change several resources as one operation. Events tell you what happened; outputs expose values that other people or systems may need.
+
+The safest learning habit is **read → validate → preview → apply → inspect**. A change set is the preview: pay special attention to replacements and deletions. Keep secrets out of templates and parameters that may be logged. Manually changing a stack-owned resource creates drift, so make durable changes through the template where practical.
+
+**Recall check:** A stack update says a database will be replaced. What do you inspect before executing it? Data retention, snapshot/backup, replacement behavior, dependencies, and the change set.
+
+**Console practice:** [CloudFormation walkthrough](guides/aws-console/cloudformation.md)
+
 
 
 

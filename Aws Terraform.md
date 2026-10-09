@@ -46,6 +46,16 @@ Terraform Cloud is a managed service provided by Hashicorp that facilitates coll
 - automated runs
 - secure variable management
 
+## Remember Terraform as a planner with a state file
+
+Terraform configuration describes the desired infrastructure; `plan` compares that description with saved state and provider-observed resources; `apply` performs the approved changes. `terraform.tfstate` is not just a cache: it can contain resource identifiers and sensitive values, so protect it and use a secure shared backend with locking for team work.
+
+Use modules to package repeatable designs, variables for controlled inputs, and outputs to expose useful results. Run format/validation and review the full plan before applying. Do not casually edit state or run destroy against a shared environment.
+
+**Recall check:** A plan proposes replacing a database. What is the right next move? Stop, inspect why replacement is planned, confirm backups/retention and dependencies, and only then decide whether to apply.
+
+Terraform is not an AWS service: these notes explain it as an IaC tool that can manage AWS and other providers.
+
 
 
 

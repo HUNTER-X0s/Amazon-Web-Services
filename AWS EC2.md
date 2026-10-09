@@ -79,3 +79,13 @@ instance type: g5.12xlarge or g5.24xlarge.
 4. Case 4: in-Memory Database for Real-Time Analytics (Memory Optimized)
 r6g.16xlarge or x2idn.32xlarge (Memory Optimized).
 
+## Remember an EC2 launch as five choices
+
+An instance needs an **image** (AMI), a **shape** (instance type), a **home** (VPC/subnet), an **identity** (instance role), and **storage** (EBS or instance store). A security group filters network access; it does not log you in. A key pair or Systems Manager access method handles administration, while the IAM role authorizes AWS API calls from the workload.
+
+Running instances can incur compute charges even when idle. Stopping an EBS-backed instance pauses its compute billing, but storage and attached resources may still cost money. Termination can delete attached volumes according to their delete-on-termination settings, so check backups first.
+
+**Recall check:** An app on EC2 cannot read S3. Where should you first check? The instance profile/role and its permission policy, then connectivity if the call still fails.
+
+**Console practice:** [EC2 walkthrough](guides/aws-console/amazon-ec2.md) · [AMI walkthrough](guides/aws-console/ami-image-builder.md)
+

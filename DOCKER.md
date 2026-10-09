@@ -392,3 +392,11 @@ docker network rm <network\_name>
 
 docker network prune
 
+## Remember the container lifecycle
+
+An **image** is a packaged, mostly immutable template; a **container** is a running instance of that image with a writable layer and process. A registry stores and distributes images. Containers share the host kernel, so they are lighter than full virtual machines, but they are not a substitute for isolation, least privilege, patching, or secrets management.
+
+Think of four questions when a container fails: **Was the image built correctly? Did the process start? Can it reach its dependencies? Is its state stored outside the disposable container?** Use a volume for data that must persist, a network for service communication, and logs/health checks to see what the process is doing.
+
+**Recall check:** A container is removed and its generated files disappear. Why? Those files existed only in the container's writable layer, not in a mounted volume or external store.
+

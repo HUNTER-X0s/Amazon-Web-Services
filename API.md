@@ -222,3 +222,13 @@ Ideal for FastAPI
 
 “FastAPI builds the API, Uvicorn runs it.”
 
+## Make the API request flow stick
+
+Think **contract → route → validation → authorization → business logic → response**. The API contract tells callers what inputs and outputs to expect; a route connects a method/path to code; validation rejects malformed input early; authorization checks what the caller may do; the handler performs the operation and returns a documented response.
+
+REST, GraphQL, and SOAP are different interface styles, not different ways to say “web address.” HTTP methods communicate intent, but the server must still validate every request and enforce permissions. A `200` response means the request succeeded at the HTTP level; the response body still carries the application result.
+
+**Recall check:** A caller sends `POST /orders` twice after a timeout. What design helps prevent two charges/orders? Use an idempotency key and make the operation safe to retry.
+
+**Console practice:** [API Gateway walkthrough](guides/aws-console/api-gateway.md)
+

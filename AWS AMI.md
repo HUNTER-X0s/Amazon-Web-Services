@@ -102,3 +102,13 @@ Creation, testing, and deployment of AMIs.
 - can be configured to run at regular intervals (example: daily, weekly, or monthly). 
 - free. 
 
+## Remember what an AMI actually contains
+
+An AMI is a **launch recipe**, not a live machine. It points to one or more snapshots and supplies launch metadata such as architecture and block-device mappings. Launching several instances from one known-good AMI gives them a repeatable starting state.
+
+Use a hand-made AMI when you need a snapshot of a prepared instance; use EC2 Image Builder when you need a repeatable, tested, scheduled image pipeline. Before capture, remove credentials, tokens, customer data, and temporary files. After capture, launch a disposable test instance from the AMI and verify it before treating the image as a release artifact.
+
+**Recall check:** Why can a beautifully configured AMI still be unsafe to share? It may contain secrets or private data from the source disk.
+
+**Console practice:** [AMI and Image Builder walkthrough](guides/aws-console/ami-image-builder.md)
+

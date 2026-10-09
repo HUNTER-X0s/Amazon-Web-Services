@@ -168,6 +168,20 @@ Common use cases for RDS :
 * E-commerce platforms : for handling inventory, customer data, and order transactions
 * Business applications : ERP, CRM, and financial applications with strong data integrity needs
 
+## Remember RDS as an operated database, not an automatic application design
+
+RDS manages database infrastructure tasks such as provisioning, patching options, backups, monitoring, and failover. Your application still needs a correct schema, connection pooling, query tuning, access control, and a recovery plan. A Multi-AZ standby is primarily for availability/failover; a read replica is primarily for scaling read traffic. They solve different problems.
+
+Network access is a separate gate from database credentials: put the database in private subnets, allow the database port only from the app tier, and manage credentials securely. Automated backups support recovery within their retention window; a snapshot can outlive the instance and continue to cost money.
+
+Aurora is an AWS relational database engine compatible with MySQL or PostgreSQL protocols. In the RDS console, creating Aurora provisions a DB cluster with a writer and optional readers, cluster endpoints, and storage behavior different from a single-instance RDS engine. Choose it for measured requirements, not simply because “it is newer.”
+
+**Recall check:** The database accepts credentials from an admin laptop, but the app cannot connect. Check VPC/subnet routing and the DB security group's inbound source before changing the password.
+
+**Credential safety:** A password-like literal remains in the original example above to preserve its content. Treat it as exposed, rotate it, and replace it with a placeholder before publishing this repository.
+
+**Console practice:** [RDS walkthrough](guides/aws-console/amazon-rds.md) · [Secrets Manager walkthrough](guides/aws-console/secrets-manager.md)
+
 
 
 

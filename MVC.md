@@ -38,6 +38,14 @@ How it Works:
 
 Although the acronym is MVC, the process typically starts with the View, which sends requests to the Controller, which then interacts with the Model if necessary. 
 
+## Remember MVC as input, decision, and data
+
+The **View** presents information and captures interaction; the **Controller** handles the request and coordinates a use case; the **Model** represents domain data and rules. Keep rendering out of persistence and database mechanics out of the view. The exact naming varies by framework, but separation of concerns is the useful idea.
+
+Request flow: `user action → controller → model/domain operation → controller chooses result → view`. Validate input and authorize the operation before changing protected data; hiding a button in the view is not access control.
+
+**Recall check:** A calculation rule is copied into three controllers. Which layer should own the shared rule? The domain/model layer or a dedicated service used by those controllers.
+
 
 
 

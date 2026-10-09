@@ -58,6 +58,16 @@ Pay as you go :
 * &#x20;Lambda uses a pay-as-you-go pricing model you had built based on the number of function executions and the duration of functions' runtime, measured in milliseconds. 
 * This is cost-effective as you only pay for the compute time that you use and there is no charge for idle time. 
 
+## Remember Lambda as a stateless event handler
+
+An invocation has three parts: **trigger event → function code → result or side effect**. The execution role grants AWS permissions; the event source grants permission to invoke. These are different permissions. A function should behave correctly if an event is retried, because distributed event sources can deliver more than once.
+
+Keep durable state in a database or object store, use a dead-letter destination/retry policy for failures, and make logs useful without writing secrets. Memory, timeout, concurrency, and payload size shape how a function behaves and costs. The console test event is a quick way to validate input/output before connecting a real event source.
+
+**Recall check:** Lambda returns an error and the source retries the event. How do you avoid duplicate side effects? Make the handler idempotent, often using a stable event/request identifier.
+
+**Console practice:** [Lambda walkthrough](guides/aws-console/aws-lambda.md) · [API Gateway walkthrough](guides/aws-console/api-gateway.md)
+
 
 
 

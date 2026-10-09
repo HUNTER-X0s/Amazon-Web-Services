@@ -89,3 +89,15 @@ DynamoDB Accelerator - DAX :
 * DAX offers microsecond latency, achieving up to a 10x performance over standard DynamoDB queries. 
 * High Availability and Scalability : can be deployed in multiple available zones. 
 * DAX is only used for and is integrated with DynamoDB while ElasticCache can be used for other databases. 
+
+## Remember DynamoDB by its access patterns
+
+DynamoDB is a key-value/document database. Its important design question is not “what tables look like in SQL?” but **“what exact queries must be fast?”** The partition key distributes items; an optional sort key orders related items within a partition. Secondary indexes add alternate ways to query, with their own storage, throughput, and consistency trade-offs.
+
+Choose on-demand capacity when traffic is uncertain or spiky; provisioned capacity can suit predictable usage when measured and tuned. Design writes to be retry-safe, keep items sensibly sized, and use conditions/transactions where correctness depends on a state change. Use a workload IAM role rather than putting access keys in a container or source file.
+
+DAX is a specialized in-memory cache for DynamoDB clients. ElastiCache is a more general-purpose cache for supported engines and patterns. Neither should become the sole durable copy of important data.
+
+**Recall check:** You need “all orders for customer X in date order.” Which key/index design would you plan around? A partition key for customer and a sort key for order time (or an index with that access pattern).
+
+**Console practice:** [DynamoDB walkthrough](guides/aws-console/amazon-dynamodb.md) · [DAX walkthrough](guides/aws-console/dynamodb-dax.md) · [ElastiCache walkthrough](guides/aws-console/elasticache.md)

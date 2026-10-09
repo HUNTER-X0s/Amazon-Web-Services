@@ -138,6 +138,10 @@ Learn why infrastructure should be repeatable, versioned, and delivered through 
 | [MVP.md](./MVP.md) | Minimum Viable Product thinking, early validation, feedback loops, plus a companion explanation of MVC responsibilities and benefits. |
 | [AWS Amplify.md](./AWS%20Amplify.md) | A high-level introduction to Amplify for building, deploying, hosting, and connecting full-stack web or mobile applications. |
 
+## 🎛️ AWS Console Field Guides
+
+The repository now includes [36 step-by-step console walkthroughs](guides/aws-console/README.md), with setup, verification, security choices, and cleanup notes for the AWS services covered here. Start with the [guide index](guides/aws-console/README.md), or jump directly to [S3](guides/aws-console/amazon-s3.md), [RDS](guides/aws-console/amazon-rds.md), [VPC and networking](guides/aws-console/amazon-vpc-networking.md), [EC2](guides/aws-console/amazon-ec2.md), [IAM](guides/aws-console/iam.md), or [Lambda](guides/aws-console/aws-lambda.md).
+
 ## 🧠 A quick service chooser
 
 | Need | Start with | Why |

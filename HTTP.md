@@ -84,6 +84,14 @@ Postman
 
 A open source leading tool for API testing. It walks through the complete workflow of setting up the environment, organizing requests, and testing various API functionalities.
 
+## Remember an HTTP exchange as a message pair
+
+A request has a **method + target + headers + optional body**. A response has a **status + headers + optional body**. Headers carry metadata such as content type, caching, and authentication; the body carries the representation. The status code tells you how the server classified the request, not whether the application's business outcome is what you intended.
+
+HTTP is stateless by default: each request must carry enough identity/context for the server to handle it. HTTPS is HTTP over TLS, which protects the connection and authenticates the endpoint when certificates validate. GET should be safe to repeat; PUT and DELETE are designed to be idempotent; POST often needs an idempotency key when clients may retry.
+
+**Recall check:** A response is `401` versus `403`. What is the usual distinction? The caller is unauthenticated versus authenticated but not authorized (implementations may vary in detail).
+
 
 
 

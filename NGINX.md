@@ -50,6 +50,14 @@ Caching :
 
 * It can store copies of frequently requested content, allowing the server to respond faster without needing to query the database repeatedly.
 
+## Remember Nginx as a traffic handler
+
+Nginx accepts client connections, evaluates the request, and either serves a local/static response or forwards the request to an upstream application. As a reverse proxy, it can centralize TLS termination, routing, compression, and caching. The upstream application's own authorization and input checks still protect the data.
+
+When debugging, trace **DNS → listener/port → TLS certificate → Nginx server/location rule → upstream address/health → app response**. Check logs and test configuration before reload. Set cache rules conservatively so personalized or authenticated content is not shared between users.
+
+**Recall check:** Nginx returns `502`. Which hop is most likely failing? The connection from Nginx to its configured upstream, though logs and network checks determine the cause.
+
 
 
 

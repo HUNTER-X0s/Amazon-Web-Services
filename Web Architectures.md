@@ -42,6 +42,14 @@ Core Concepts :
 
 * Development Focus: The presenter stresses that while learning HTML, CSS, and JavaScript is necessary, professional success also requires mastering these architectural concepts to build scalable, industry-standard applications.
 
+## Remember architecture by following one request
+
+Start with the browser and follow one request through each boundary: **presentation → application logic → data**. A two-tier app connects client and server directly; a three-tier app separates a data store; multi-tier designs add services such as identity, queues, caches, and observability. Each added tier creates a boundary with its own availability, security, and latency behavior.
+
+Static content can often be served from object storage and a CDN. Dynamic content needs application logic and may depend on databases or other services. Keep state in systems designed to share it rather than relying on one app server's local memory when requests can reach multiple servers.
+
+**Recall check:** A dynamic page is slow. Trace the request and measure each tier before scaling everything; the bottleneck could be the browser, network, app, database, or cache.
+
 
 
 

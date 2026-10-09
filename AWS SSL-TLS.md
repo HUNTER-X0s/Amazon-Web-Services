@@ -348,3 +348,13 @@ Both: "Let's communicate securely using the session key..."
 
 &#x20;
 
+## Remember the three security goals
+
+TLS protects a connection through **confidentiality** (encryption), **integrity** (tamper detection), and **authentication** (certificate validation). Hashing alone is not encryption: a hash is a one-way digest; a MAC adds a secret key to authenticate data; a digital signature uses asymmetric keys to verify a signer and integrity.
+
+The handshake in the original notes is a simplified teaching picture. Modern TLS versions negotiate algorithms and use authenticated key exchange to derive session keys; they do not generally work as the old RSA “encrypt a pre-master secret with the public key” sketch suggests. Bulk application data uses efficient symmetric encryption after the handshake. Use current TLS configurations and managed certificates rather than implementing cryptography yourself.
+
+**Recall check:** A site encrypts traffic but presents a certificate for the wrong hostname. Which goal fails? Authentication/identity verification, even though encryption may still occur.
+
+**Console practice:** [ACM certificate walkthrough](guides/aws-console/certificate-manager.md) · [CloudFront walkthrough](guides/aws-console/cloudfront.md)
+

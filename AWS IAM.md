@@ -32,6 +32,16 @@ AWS IAM Best Practices :
 5. Never share access keys or passwords.
 6. Audit the permission using the IAM credential report.
 
+## Remember IAM with “who, what, and where”
+
+An identity policy says what a principal may do; a trust policy says who may assume a role; a resource policy can say which principals may reach a particular resource. A request succeeds only when the relevant policies and account controls permit it and no applicable explicit deny blocks it.
+
+For humans, use your organization's federation or IAM Identity Center where available. For software running on AWS, attach a role to the service instead of distributing long-lived keys. Give the role only the actions and resource ARNs needed, then check CloudTrail when troubleshooting access.
+
+**Recall check:** EC2 needs to read one S3 bucket. What is the safer credential pattern? An EC2 instance role with narrowly scoped S3 read permission—not an access key in the app.
+
+**Console practice:** [IAM walkthrough](guides/aws-console/iam.md)
+
 
 
 

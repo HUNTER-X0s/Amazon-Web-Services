@@ -134,6 +134,16 @@ Steps to create an ASG
 * Add Notifications (optional)
 * Review and create
 
+## Keep the traffic layers separate in your memory
+
+An Elastic Load Balancer is the **front door and traffic distributor**. Its listener accepts a protocol/port, its rules choose a target group, and health checks decide which targets are ready. An Auto Scaling group is a different service: it changes how many EC2 instances exist and replaces unhealthy ones. Connecting them lets capacity changes and traffic routing work together.
+
+Choose ALB for HTTP/HTTPS application routing, NLB for high-performance transport-level traffic, and Gateway Load Balancer for supported virtual network appliances. For public web traffic, terminate HTTPS with a valid certificate and let the target group health path reflect actual app readiness.
+
+**Recall check:** The ALB is healthy but no page loads. Check listener/rule, target registration and health, target port, and the target security group's source rule.
+
+**Console practice:** [Load Balancer walkthrough](guides/aws-console/elastic-load-balancing.md) · [Auto Scaling walkthrough](guides/aws-console/ec2-auto-scaling.md)
+
 
 
 
