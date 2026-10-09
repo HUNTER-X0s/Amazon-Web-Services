@@ -14,7 +14,7 @@
 
 > A practical, beginner-friendly knowledge base for learning how modern applications travel from a browser request to resilient workloads on AWS.
 
-This repository is deliberately lightweight: every lesson is a readable Markdown note, so you can browse it on GitHub, clone it, or use it as a focused interview-prep checklist. The animated header is a small visual welcome; the learning material itself remains useful even when external images are blocked.
+This repository is deliberately lightweight: every lesson is a readable Markdown note, so you can browse it on GitHub, clone it, or use it as a focused interview-prep checklist. The topic notes now pair explanations with memorable mental models and recall questions; the console field guides turn those concepts into ordered hands-on workflows with verification and cleanup steps. The animated header is a small visual welcome; the learning material itself remains useful even when external images are blocked.
 
 ## ✨ At a glance
 
@@ -131,7 +131,7 @@ Learn why infrastructure should be repeatable, versioned, and delivered through 
 | [AWS CloudFormation IAC.md](./AWS%20CloudFormation%20IAC.md) | AWS-native declarative infrastructure: templates, stacks, S3-hosted templates, repeatability, and automated provisioning. |
 | [Aws Terraform.md](./Aws%20Terraform.md) | Multi-cloud IaC with HCL/JSON, the `init` → `plan` → `apply` lifecycle, state, remote collaboration, `count`, `for_each`, and reusable modules. |
 | [CI CD pipeline.md](./CI%20CD%20pipeline.md) | CI/CD concepts, SDLC stages, continuous delivery vs. deployment, automation benefits, and common manual-release bottlenecks. |
-| [CICD (Continuous Integration and Co.md](./CICD%20%28Continuous%20Integration%20and%20Co.md) | An alternate CI/CD note covering the same foundational lifecycle, integration, delivery, deployment, and release-automation concepts. |
+| [CICD.md](./CICD.md) | A focused CI/CD explanation covering the software lifecycle, integration, delivery, deployment, and release automation. |
 | [JENKINS.md](./JENKINS.md) | A title-only placeholder reserved for a future Jenkins-focused automation and pipeline guide. |
 | [Monolithic and Microservices archit.md](./Monolithic%20and%20Microservices%20archit.md) | The trade-offs between monoliths and microservices: deployment, scaling, coupling, fault isolation, and team autonomy. |
 | [MVC.md](./MVC.md) | Model-View-Controller responsibilities, the request flow between layers, and why separation of concerns helps dynamic web applications. |
@@ -140,7 +140,7 @@ Learn why infrastructure should be repeatable, versioned, and delivered through 
 
 ## 🎛️ AWS Console Field Guides
 
-The repository now includes [36 step-by-step console walkthroughs](guides/aws-console/README.md), with setup, verification, security choices, and cleanup notes for the AWS services covered here. Start with the [guide index](guides/aws-console/README.md), or jump directly to [S3](guides/aws-console/amazon-s3.md), [RDS](guides/aws-console/amazon-rds.md), [VPC and networking](guides/aws-console/amazon-vpc-networking.md), [EC2](guides/aws-console/amazon-ec2.md), [IAM](guides/aws-console/iam.md), or [Lambda](guides/aws-console/aws-lambda.md).
+The repository includes [36 step-by-step console walkthroughs](./aws-console/README.md), with setup, verification, security choices, and cleanup notes for the AWS services covered here. Start with the [guide index](./aws-console/README.md), or jump directly to [S3](./aws-console/amazon-s3.md), [RDS](./aws-console/amazon-rds.md), [VPC and networking](./aws-console/amazon-vpc-networking.md), [EC2](./aws-console/amazon-ec2.md), [IAM](./aws-console/iam.md), or [Lambda](./aws-console/aws-lambda.md).
 
 ## 🧠 A quick service chooser
 
